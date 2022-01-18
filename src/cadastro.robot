@@ -16,11 +16,17 @@ Deve cadastrar um novo personagem
 
     Fill Text    css=input[placeholder^="Nome"]    Mestre Yoda2
     Fill Text    css=input[placeholder="Email"]    yoda@jedi.com
-    Fill Text    id=insta                          @yoda
 
-    Select Options By    css=.ordem select    text    Outros
+    Select Options By    css=.ordem select    text    Jedi
+
+    Click            xpath=//input[@value="Cavaleiro Jedi"]/..//span[@class="check"]
 
     Select Birth Date    fevereiro    1999    22
+
+    Fill Text    id=insta                          @yoda
+    Click            xpath=//input[@name="comunications"]/../span[@class="check"]
+
+    Click        css=button >> text=Cadastrar
 
     #Temporario
     Sleep    10
