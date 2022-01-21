@@ -13,7 +13,7 @@ Go To User Form
 Fill User Form
     [Arguments]    ${user}
 
-    Fill Text    css=input[name="nome"]    ${user}[name]
+    Fill Text    css=input[name="nome"]     ${user}[name]
     Fill Text    css=input[name="email"]    ${user}[email]
 
     Select Options By    css=.ordem select    text    ${user}[order]
@@ -52,7 +52,8 @@ Submit User Form
 Toaster Message Should Be
     [Arguments]    ${expected_message}
 
-    Wait For Elements State    css=.toast div >> text=${expected_message}
-    ...                        visible                                       5
+    ${element}    Set Variable    css=.toast div
 
+    Wait For Elements State    ${element}    visible    5
+    Get Text                   ${element}    equal      ${expected_message}
 
