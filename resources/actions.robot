@@ -2,6 +2,11 @@
 Documentation    Ações customizadas do Yodapp
 
 *** Keywords ***
+Go To Home Page
+    Go To    ${BASE_URL}
+
+    Wait For Elements State    css=.carousel    visible    5
+
 Go To User Form
 
     Click    text=Novo
@@ -57,3 +62,11 @@ Toaster Message Should Be
     Wait For Elements State    ${element}    visible    5
     Get Text                   ${element}    equal      ${expected_message}
 
+User Should Be Visible
+    [Arguments]    ${user}    
+
+    ${element}    Set Variable    xpath=//td[contains(text(), "${user}[email]")]/..
+
+    Wait For Elements State    ${element}    visible     5
+    Get Text                   ${element}    contains    ${user}[name]
+    Get Text                   ${element}    contains    ${user}[insta]

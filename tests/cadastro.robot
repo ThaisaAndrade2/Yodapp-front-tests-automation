@@ -22,6 +22,8 @@ Deve cadastrar um novo personagem
     Check Accept Comunications
     Submit User Form
     Toaster Message Should Be     Usuário cadastrado com sucesso!
+    Go To Home Page
+    User Should Be Visible       ${user}
 
 Email incorreto
     [Tags]    inv_email
